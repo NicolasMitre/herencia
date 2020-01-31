@@ -1,34 +1,48 @@
-function Instituciones(
-  nombre,
-  ubicacion,
-  alumno,
-  profesor,
-  materia,
-  horario,
-  curso,
-  edadAlum,
-  edadProf
-) {
-  Cursos.call(
-    this,
-    alumno,
-    profesor,
-    materia,
-    horario,
-    curso,
-    edadAlum,
-    edadProf
-  );
+function Instituciones(nombre, direccion) {
   this.nombre = nombre;
-  this.ubicacion = ubicacion;
+  this.direccion = direccion;
+  this.profesores = [];
+  this.estudiantes = [];
 }
-Instituciones.prototype = Object.create(Cursos.prototype);
-Instituciones.prototype.constructor = Instituciones;
-Instituciones.prototype.direccion = function() {
-  console.log(`${this.nombre}, ${this.ubicacion}`);
-};
-Instituciones.prototype.mostrar = function() {
+
+Instituciones.prototype.msgEstudiantes = function() {
   console.log(
-    `En este instituto ${this.nombre} de la calle ${this.ubicacion} el alumno ${this.alumno} asiste a su clase de ${this.materia} que dura ${this.horario} en el curso ${this.curso} dirigida por el profesor ${this.profesor}`
+    `Bienvenido al Instituto ${
+      this.nombre
+    }.\n\nLos estudiantes son:\n\n${this.listarEstudiantes()}`
   );
+};
+
+Instituciones.prototype.msgProfesores = function() {
+  console.log(
+    `Bienvenido al Instituto ${
+      this.nombre
+    }.\n\nLos Profesores son:\n\n${this.listarProfesores()}`
+  );
+};
+
+Instituciones.prototype.listarEstudiantes = function() {
+  var listado = "";
+  this.estudiantes.forEach(element => {
+    listado += element.toString();
+  });
+  return listado;
+};
+
+Instituciones.prototype.listarProfesores = function() {
+  var listado = "";
+  this.profesores.forEach(element => {
+    listado += element.toString();
+  });
+  return listado;
+};
+
+Instituciones.prototype.agregarEstudiante = function(estudiante) {
+  this.estudiantes.push(estudiante);
+  console.log("Estudiante agregado con exito!");
+};
+
+Instituciones.prototype.agregarProfesores = function(profesor) {
+  this.profesores.push(profesor);
+  console.log("Profesor agregado con exito!");
 };

@@ -1,17 +1,17 @@
-let prueba1 = new Instituciones("Avalith", "Rawson 1428");
-let prueba2 = new Alumnos("Nicolas", 21);
-let prueba3 = new Profesores("Leonardo", 25);
-let prueba4 = new Materias("POO", 5);
-let pruebaFinal = new Cursos(
-  prueba2.nombre,
-  prueba3.nombre,
-  prueba4.nombre,
-  prueba4.horario,
-  "Skill Factory"
-);
+let gonzalo = new Profesores("Gonzalo", 35, "Base de datos");
+let leonardo = new Profesores("Leo", 22, "Programacion");
+let felipe = new Profesores("Felipe", 44, "SIC");
 
-prueba1.direccion();
-prueba2.saludar();
-prueba3.saludar();
-prueba4.nuevaMateria();
-prueba1.mostrar();
+let martin = new Alumnos("Martin", 26);
+let nicolas = new Alumnos("Nicolas", 18);
+let luciano = new Alumnos("Luciano", 19);
+
+let instituto = new Instituciones("avalith", "rwsn 1428");
+
+instituto.agregarProfesores(gonzalo);
+instituto.agregarProfesores(leonardo);
+instituto.agregarProfesores(felipe);
+
+instituto.agregarEstudiante(martin);
+instituto.agregarEstudiante(nicolas);
+instituto.agregarEstudiante(luciano);
