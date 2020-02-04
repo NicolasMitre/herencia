@@ -1,9 +1,8 @@
-function Alumnos(nombre, edad) {
-  Personas.call(this, nombre, edad);
+class Alumnos extends Personas {
+  constructor(nombre, edad) {
+    super(nombre, edad);
+  }
+  toString() {
+    return `Nombre: ${this.nombre}. Edad: ${this.edad} \n`;
+  }
 }
-
-Alumnos.prototype = Object.create(Personas.prototype);
-Alumnos.prototype.constructor = Alumnos;
-Alumnos.prototype.toString = function() {
-  return `Nombre: ${this.nombre}. Edad: ${this.edad} \n`;
-};
